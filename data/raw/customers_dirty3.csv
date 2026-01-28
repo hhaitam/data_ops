@@ -1,0 +1,21 @@
+customer_id,full_name,email,signup_date,country,age,last_purchase_amount,loyalty_tier
+1001,Marie Dupont,marie.dupont@example.com,2025-11-03,FR,29,120.50,GOLD
+1002,John Smith,john.smith@example,2025-10-15,France,34,89.90,SILVER
+1003, ,alice@example.com,2025-13-01,FR,27,45.00,BRONZE
+1004,Pedro García,pedro.garcia@example.com,not_a_date,ES,NaN,0,SILVER
+1005,Li Wei,li.wei@example.com,2025-09-12,CN,41,-12.00,GOLD
+1006,Chloé Martin,chloe.martin@example.com,2025-09-12,fr,17,15.00,PLATINUM
+1007,Ahmed Ben Ali,ahmed.benali@example.com,2024-02-29,TN,25,300.00,GOLD
+1008,Sarah Connor,sarah.connor@example.com,2025-08-01,UK,200,55.00,SILVER
+1009,Jean Dupont,jean.dupont@example.com,2025-07-20,FR,31,,BRONZE
+1010,Anna Müller,anna.mueller@example.com,2025-07-18,DE,28,19.99,SILVER
+1011,Marie Dupont,marie.dupont@example.com,2025-11-03,FR,29,120.50,GOLD
+1012,Tom,test@,2025-06-30,US,abc,10.00,BRONZE
+1013,Inès Dubois,ines.dubois@example.com,2025-06-15,FRA,33,9999999.99,GOLD
+1014,Carlos Lopez,carlos.lopez@example.com,2025-05-10,ES,40,12.5,SILVER
+1015,Nina Rossi,nina.rossi@example.com,2025-05-10,IT,39,12,UNKNOWN
+1016,Zoé,zoe@example.com,2025-04-01,FR,,5.00,BRONZE
+1017,,no_name@example.com,2025-03-22,FR,22,25.00,SILVER
+1018,Jane Doe,jane.doe@example.com,2025-02-30,USA,30,70.00,GOLD
+1019,Émile Moreau,emile.moreau@example.com,2025-01-15,FR,30,0,BRONZE
+1020,Lucie Petit,lucie.petit@example.com,2025-01-14,FR,30,0.00,BRONZE
