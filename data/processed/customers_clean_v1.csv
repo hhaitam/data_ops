@@ -1,41 +1,35 @@
 customer_id,full_name,email,signup_date,country,age,last_purchase_amount,loyalty_tier
-3001,Jean Morel,,2025-01-10,FR,42.0,120.5,GOLD
-3002,Alice Petit,,2025-01-12,FR,35.0,80.0,SILVER
-3003,Carlos Diaz,,,ES,29.0,60.0,GOLD
-3004,Lucie Bernard,,2025-02-01,FR,,25.0,BRONZE
-3005,Mohamed Ali,,2025-02-10,DE,31.0,,SILVER
-3006,Emma Dupont,,2025-02-15,UK,,45.0,GOLD
-3007,Tom Leroy,,2025-03-01,US,,90.0,GOLD
-3008,Sarah Klein,,2025-03-05,DE,28.0,0.0,SILVER
-3009,Anna Rossi,,2025-03-10,IT,34.0,70.0,GOLD
-3010,Jean Morel,,2025-01-10,FR,42.0,120.5,GOLD
-2001,Paul Martin,,2025-03-10,FR,45.0,250.0,GOLD
-2002,Laura Bernard,,2025-03-12,FR,32.0,80.0,SILVER
-2003,Marco Rossi,,,IT,38.0,120.0,GOLD
-2004,Sophie Durand,,2025-01-15,FRANCE,,40.0,BRONZE
-2005,Lucas Petit,,2024-12-01,FR,27.0,,SILVER
-2006,Anna Kowalski,,2025-04-01,PL,29.0,60.0,GOLD
-2007,Emma Leroy,,2025-03-05,FR,,30.0,SILVER
-2008,Noah Dupont,,,FR,34.0,75.0,GOLD
-2009,Clara Meunier,,2025-03-01,US,31.0,0.0,PLATINUM
-2010,Paul Martin,,2025-03-10,FR,45.0,250.0,GOLD
-1001,Marie Dupont,,2025-11-03,FR,29.0,120.5,GOLD
-1002,John Smith,,2025-10-15,FRANCE,34.0,89.9,SILVER
-1003,,,,FR,27.0,45.0,BRONZE
-1004,Pedro García,,,ES,,0.0,SILVER
-1005,Li Wei,,2025-09-12,CN,41.0,,GOLD
-1006,Chloé Martin,,2025-09-12,FR,,15.0,PLATINUM
-1007,Ahmed Ben Ali,,2024-02-29,TN,25.0,300.0,GOLD
-1008,Sarah Connor,,2025-08-01,UK,,55.0,SILVER
-1009,Jean Dupont,,2025-07-20,FR,31.0,,BRONZE
-1010,Anna Müller,,2025-07-18,DE,28.0,19.99,SILVER
-1011,Marie Dupont,,2025-11-03,FR,29.0,120.5,GOLD
-1012,Tom,,2025-06-30,US,,10.0,BRONZE
-1013,Inès Dubois,,2025-06-15,FRA,33.0,9999999.99,GOLD
-1014,Carlos Lopez,,2025-05-10,ES,40.0,12.5,SILVER
-1015,Nina Rossi,,2025-05-10,IT,39.0,12.0,UNKNOWN
-1016,Zoé,,2025-04-01,FR,,5.0,BRONZE
-1017,,,2025-03-22,FR,22.0,25.0,SILVER
-1018,Jane Doe,,,USA,30.0,70.0,GOLD
-1019,Émile Moreau,,2025-01-15,FR,30.0,0.0,BRONZE
-1020,Lucie Petit,,2025-01-14,FR,30.0,0.0,BRONZE
+3001,Jean Morel,jean.morel@example.com,2025-01-10,FR,42.0,120.5,GOLD
+3003,Carlos Diaz,carlos.diaz@example.com,,ES,29.0,60.0,GOLD
+3004,Lucie Bernard,lucie.bernard@example.com,2025-02-01,FR,,25.0,BRONZE
+3005,Mohamed Ali,mohamed.ali@example.com,2025-02-10,DE,31.0,,SILVER
+3006,Emma Dupont,emma.dupont@example.com,2025-02-15,UK,,45.0,GOLD
+3007,Tom Leroy,tom.leroy@example.com,2025-03-01,US,,90.0,GOLD
+3008,Sarah Klein,sarah.klein@example.com,2025-03-05,DE,28.0,0.0,SILVER
+3009,Anna Rossi,anna.rossi@example.com,2025-03-10,IT,34.0,70.0,GOLD
+3010,Jean Morel,jean.morel@example.com,2025-01-10,FR,42.0,120.5,GOLD
+2001,Paul Martin,paul.martin@example.com,2025-03-10,FR,45.0,250.0,GOLD
+2003,Marco Rossi,marco.rossi@example.com,,IT,38.0,120.0,GOLD
+2004,Sophie Durand,sophie.durand@example.com,2025-01-15,FRANCE,,40.0,BRONZE
+2005,Lucas Petit,lucas.petit@example.com,2024-12-01,FR,27.0,,SILVER
+2006,Anna Kowalski,anna.k@example.com,2025-04-01,PL,29.0,60.0,GOLD
+2007,Emma Leroy,emma.leroy@example.com,2025-03-05,FR,,30.0,SILVER
+2008,Noah Dupont,noah.dupont@example.com,,FR,34.0,75.0,GOLD
+2009,Clara Meunier,clara.meunier@example.com,2025-03-01,US,31.0,0.0,PLATINUM
+2010,Paul Martin,paul.martin@example.com,2025-03-10,FR,45.0,250.0,GOLD
+1001,Marie Dupont,marie.dupont@example.com,2025-11-03,FR,29.0,120.5,GOLD
+1004,Pedro García,pedro.garcia@example.com,,ES,,0.0,SILVER
+1005,Li Wei,li.wei@example.com,2025-09-12,CN,41.0,,GOLD
+1006,Chloé Martin,chloe.martin@example.com,2025-09-12,FR,,15.0,PLATINUM
+1007,Ahmed Ben Ali,ahmed.benali@example.com,2024-02-29,TN,25.0,300.0,GOLD
+1008,Sarah Connor,sarah.connor@example.com,2025-08-01,UK,,55.0,SILVER
+1009,Jean Dupont,jean.dupont@example.com,2025-07-20,FR,31.0,,BRONZE
+1010,Anna Müller,anna.mueller@example.com,2025-07-18,DE,28.0,19.99,SILVER
+1011,Marie Dupont,marie.dupont@example.com,2025-11-03,FR,29.0,120.5,GOLD
+1013,Inès Dubois,ines.dubois@example.com,2025-06-15,FRA,33.0,9999999.99,GOLD
+1014,Carlos Lopez,carlos.lopez@example.com,2025-05-10,ES,40.0,12.5,SILVER
+1015,Nina Rossi,nina.rossi@example.com,2025-05-10,IT,39.0,12.0,UNKNOWN
+1016,Zoé,zoe@example.com,2025-04-01,FR,,5.0,BRONZE
+1018,Jane Doe,jane.doe@example.com,,USA,30.0,70.0,GOLD
+1019,Émile Moreau,emile.moreau@example.com,2025-01-15,FR,30.0,0.0,BRONZE
+1020,Lucie Petit,lucie.petit@example.com,2025-01-14,FR,30.0,0.0,BRONZE
