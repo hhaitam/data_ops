@@ -1,0 +1,11 @@
+customer_id,full_name,email,signup_date,country,age,last_purchase_amount,loyalty_tier
+2001,Paul Martin,,2025-03-10,FR,45.0,250.0,GOLD
+2002,Laura Bernard,,2025-03-12,FR,32.0,80.0,SILVER
+2003,Marco Rossi,,,IT,38.0,120.0,GOLD
+2004,Sophie Durand,,2025-01-15,FRANCE,,40.0,BRONZE
+2005,Lucas Petit,,2024-12-01,FR,27.0,,SILVER
+2006,Anna Kowalski,,2025-04-01,PL,29.0,60.0,GOLD
+2007,Emma Leroy,,2025-03-05,FR,,30.0,SILVER
+2008,Noah Dupont,,,FR,34.0,75.0,GOLD
+2009,Clara Meunier,,2025-03-01,US,31.0,0.0,PLATINUM
+2010,Paul Martin,,2025-03-10,FR,45.0,250.0,GOLD

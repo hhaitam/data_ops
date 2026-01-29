@@ -7,29 +7,17 @@ from pathlib import Path
 
 RAW_DIR = Path("data/raw")
 PROCESSED_DIR = Path("data/processed")
-OUTPUT_FILE = PROCESSED_DIR / "customers_clean_v1.csv"
 
 ALLOWED_TIERS = {"BRONZE", "SILVER", "GOLD", "PLATINUM"}
-
-
-def load_raw_data():
-    dfs = []
-    for file in RAW_DIR.glob("customers_dirty*.csv"):
-        df = pd.read_csv(file)
-        dfs.append(df)
-    return pd.concat(dfs, ignore_index=True)
 
 
 def clean_email(email):
     if pd.isna(email):
         return np.nan
-    email = str(email).strip().lower()  # remove spaces & lowercase
-    # Simple regex validation (lenient)
-    if re.match(r"^[\w\.\+\-]+@[\w\.\-]+\.[a-z]{2,}$", email):
-        return email
-    else:
+    try:
+        return validate_email(email).email.lower()
+    except EmailNotValidError:
         return np.nan
-
 
 
 def clean_amount(value):
@@ -46,25 +34,16 @@ def clean_amount(value):
 def clean_data(df):
     df = df.copy()
 
-    # --- ID ---
     df["customer_id"] = pd.to_numeric(df["customer_id"], errors="coerce")
 
-    # --- Name ---
     df["full_name"] = df["full_name"].astype(str).str.strip()
-    df.loc[df["full_name"] == "", "full_name"] = np.nan  # empty strings → NaN
 
-    # --- Email ---
     df["email"] = df["email"].apply(clean_email)
 
-    # --- Drop rows where name OR email is missing (NEW RULE) ---
-    df = df.dropna(subset=["full_name", "email"])
-
-    # --- Signup Date ---
     df["signup_date"] = pd.to_datetime(df["signup_date"], errors="coerce")
     df.loc[df["signup_date"] > datetime.now(), "signup_date"] = pd.NaT
     df["signup_date"] = df["signup_date"].dt.date
 
-    # --- Country ---
     df["country"] = (
         df["country"]
         .astype(str)
@@ -72,14 +51,11 @@ def clean_data(df):
         .replace({"NAN": "UNKNOWN", "": "UNKNOWN"})
     )
 
-    # --- Age ---
     df["age"] = pd.to_numeric(df["age"], errors="coerce")
     df.loc[(df["age"] < 18) | (df["age"] > 100), "age"] = np.nan
 
-    # --- Last purchase amount ---
     df["last_purchase_amount"] = df["last_purchase_amount"].apply(clean_amount)
 
-    # --- Loyalty tier ---
     df["loyalty_tier"] = (
         df["loyalty_tier"]
         .astype(str)
@@ -87,22 +63,33 @@ def clean_data(df):
         .apply(lambda x: x if x in ALLOWED_TIERS else "UNKNOWN")
     )
 
-    # --- Remove duplicates by customer_id ---
     df = df.drop_duplicates(subset=["customer_id"])
 
     return df
 
 
-
 def main():
     PROCESSED_DIR.mkdir(exist_ok=True)
 
-    raw_df = load_raw_data()
-    clean_df = clean_data(raw_df)
+    raw_files = list(RAW_DIR.glob("customers_dirty*.csv"))
 
-    clean_df.to_csv(OUTPUT_FILE, index=False)
-    print(f"✅ Pipeline terminé. Fichier généré : {OUTPUT_FILE}")
+    if not raw_files:
+        raise FileNotFoundError("❌ No raw customer files found.")
+
+    for file_path in raw_files:
+        print(f"🔄 Processing {file_path.name}")
+
+        df_raw = pd.read_csv(file_path)
+        df_clean = clean_data(df_raw)
+
+        output_name = file_path.stem + "_clean_v1.csv"
+        output_path = PROCESSED_DIR / output_name
+
+        df_clean.to_csv(output_path, index=False)
+
+        print(f"✅ Output generated: {output_path}")
 
 
 if __name__ == "__main__":
     main()
+
