@@ -1,13 +1,12 @@
-FROM python:3.10-slim
+FROM python:3.13-slim
 
 WORKDIR /app
 
-# Installer dépendances
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copier le code
-COPY src ./src
+COPY src/ src/
+COPY pytest.ini .
 
-# Commande par défaut
-CMD ["python", "-m", "src.pipeline"]
+CMD ["python", "src/clean_customers.py"]
+
