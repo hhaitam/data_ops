@@ -4,6 +4,8 @@ import re
 from email_validator import validate_email, EmailNotValidError
 from datetime import datetime
 from pathlib import Path
+import sys
+
 
 RAW_DIR = Path("data/raw")
 PROCESSED_DIR = Path("data/processed")
@@ -71,10 +73,17 @@ def clean_data(df):
 def main():
     PROCESSED_DIR.mkdir(exist_ok=True)
 
-    raw_files = list(RAW_DIR.glob("customers_dirty*.csv"))
+    input_file = sys.argv[1] if len(sys.argv) > 1 else None
 
-    if not raw_files:
-        raise FileNotFoundError("❌ No raw customer files found.")
+    if input_file:
+        raw_files = [RAW_DIR / input_file]
+    else:
+        raw_files = list(RAW_DIR.glob("customers_dirty*.csv"))
+
+    #raw_files = list(RAW_DIR.glob("customers_dirty*.csv"))
+
+    #if not raw_files:
+    #    raise FileNotFoundError("❌ No raw customer files found.")
 
     for file_path in raw_files:
         print(f"🔄 Processing {file_path.name}")

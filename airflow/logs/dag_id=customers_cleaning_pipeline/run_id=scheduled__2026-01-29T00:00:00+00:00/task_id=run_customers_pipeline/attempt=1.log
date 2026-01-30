@@ -1,0 +1,42 @@
+[2026-01-30T09:23:12.807+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-01-30T09:23:13.097+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: customers_cleaning_pipeline.run_customers_pipeline scheduled__2026-01-29T00:00:00+00:00 [queued]>
+[2026-01-30T09:23:13.124+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: customers_cleaning_pipeline.run_customers_pipeline scheduled__2026-01-29T00:00:00+00:00 [queued]>
+[2026-01-30T09:23:13.125+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 3
+[2026-01-30T09:23:13.176+0000] {taskinstance.py:2330} INFO - Executing <Task(DockerOperator): run_customers_pipeline> on 2026-01-29 00:00:00+00:00
+[2026-01-30T09:23:13.205+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=264) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-01-30T09:23:13.206+0000] {standard_task_runner.py:63} INFO - Started process 266 to run task
+[2026-01-30T09:23:13.199+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'customers_cleaning_pipeline', 'run_customers_pipeline', 'scheduled__2026-01-29T00:00:00+00:00', '--job-id', '3', '--raw', '--subdir', 'DAGS_FOLDER/customers_pipeline_dag.py', '--cfg-path', '/tmp/tmpndhw3uto']
+[2026-01-30T09:23:13.217+0000] {standard_task_runner.py:91} INFO - Job 3: Subtask run_customers_pipeline
+[2026-01-30T09:23:13.511+0000] {task_command.py:426} INFO - Running <TaskInstance: customers_cleaning_pipeline.run_customers_pipeline scheduled__2026-01-29T00:00:00+00:00 [running]> on host 7958ec1a91ac
+[2026-01-30T09:23:13.818+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='customers_cleaning_pipeline' AIRFLOW_CTX_TASK_ID='run_customers_pipeline' AIRFLOW_CTX_EXECUTION_DATE='2026-01-29T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2026-01-29T00:00:00+00:00'
+[2026-01-30T09:23:13.818+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-01-30T09:23:14.369+0000] {docker.py:157} ERROR - Failed to establish connection to Docker host unix://var/run/docker.sock: Error while fetching server API version: ('Connection aborted.', PermissionError(13, 'Permission denied'))
+[2026-01-30T09:23:14.372+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-01-30T09:23:14.450+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 400, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/docker/operators/docker.py", line 492, in execute
+    if self.force_pull or not self.cli.images(name=self.image):
+                              ^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/docker/operators/docker.py", line 362, in cli
+    return self.hook.api_client
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/functools.py", line 995, in __get__
+    val = self.func(instance)
+          ^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/docker/hooks/docker.py", line 161, in api_client
+    raise AirflowException("Failed to establish connection to any given Docker hosts.")
+airflow.exceptions.AirflowException: Failed to establish connection to any given Docker hosts.
+[2026-01-30T09:23:14.491+0000] {taskinstance.py:1206} INFO - Marking task as UP_FOR_RETRY. dag_id=customers_cleaning_pipeline, task_id=run_customers_pipeline, run_id=scheduled__2026-01-29T00:00:00+00:00, execution_date=20260129T000000, start_date=20260130T092313, end_date=20260130T092314
+[2026-01-30T09:23:14.565+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 3 for task run_customers_pipeline (Failed to establish connection to any given Docker hosts.; 266)
+[2026-01-30T09:23:14.608+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2026-01-30T09:23:14.747+0000] {taskinstance.py:3498} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-01-30T09:23:14.765+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
